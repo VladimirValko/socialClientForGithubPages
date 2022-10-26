@@ -15,7 +15,7 @@ import MusicPage from "./pages/musicPage/MusicPage";
 function App() {
   const isAuth = useSelector(selectIsAuth);
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/socialClientForGithubPages">
       <div className="app">
         <Topbar />
         <Routes>
