@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/socialClientForGithubPages/static/css/main.dc1475cd.css",
+    "main.js": "/socialClientForGithubPages/static/js/main.5c643314.js",
+    "reactPlayerYouTube.js": "/socialClientForGithubPages/static/js/reactPlayerYouTube.b5e790ca.chunk.js",
+    "reactPlayerSoundCloud.js": "/socialClientForGithubPages/static/js/reactPlayerSoundCloud.f3c6a360.chunk.js",
+    "reactPlayerVimeo.js": "/socialClientForGithubPages/static/js/reactPlayerVimeo.ddbdcfeb.chunk.js",
+    "reactPlayerFacebook.js": "/socialClientForGithubPages/static/js/reactPlayerFacebook.9d276bfb.chunk.js",
+    "reactPlayerStreamable.js": "/socialClientForGithubPages/static/js/reactPlayerStreamable.9995f5aa.chunk.js",
+    "reactPlayerWistia.js": "/socialClientForGithubPages/static/js/reactPlayerWistia.eeeb23b6.chunk.js",
+    "reactPlayerTwitch.js": "/socialClientForGithubPages/static/js/reactPlayerTwitch.738c346e.chunk.js",
+    "reactPlayerDailyMotion.js": "/socialClientForGithubPages/static/js/reactPlayerDailyMotion.14c8b4a3.chunk.js",
+    "reactPlayerMixcloud.js": "/socialClientForGithubPages/static/js/reactPlayerMixcloud.ea6720ac.chunk.js",
+    "reactPlayerVidyard.js": "/socialClientForGithubPages/static/js/reactPlayerVidyard.4016fd3e.chunk.js",
+    "reactPlayerKaltura.js": "/socialClientForGithubPages/static/js/reactPlayerKaltura.285e2879.chunk.js",
+    "reactPlayerFilePlayer.js": "/socialClientForGithubPages/static/js/reactPlayerFilePlayer.cabb084a.chunk.js",
+    "reactPlayerPreview.js": "/socialClientForGithubPages/static/js/reactPlayerPreview.618b6221.chunk.js",
+    "static/media/noResults.png": "/socialClientForGithubPages/static/media/noResults.98bc826327ced82ba54b.png",
+    "static/media/heart.png": "/socialClientForGithubPages/static/media/heart.d03a620755af56068dbd.png",
+    "static/media/like.png": "/socialClientForGithubPages/static/media/like.be1d10c9aba02398fa0c.png",
+    "static/media/gift.png": "/socialClientForGithubPages/static/media/gift.4a9c4d62df0cccc684e3.png",
+    "index.html": "/socialClientForGithubPages/index.html",
+    "main.dc1475cd.css.map": "/socialClientForGithubPages/static/css/main.dc1475cd.css.map",
+    "main.5c643314.js.map": "/socialClientForGithubPages/static/js/main.5c643314.js.map",
+    "reactPlayerYouTube.b5e790ca.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerYouTube.b5e790ca.chunk.js.map",
+    "reactPlayerSoundCloud.f3c6a360.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerSoundCloud.f3c6a360.chunk.js.map",
+    "reactPlayerVimeo.ddbdcfeb.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerVimeo.ddbdcfeb.chunk.js.map",
+    "reactPlayerFacebook.9d276bfb.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerFacebook.9d276bfb.chunk.js.map",
+    "reactPlayerStreamable.9995f5aa.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerStreamable.9995f5aa.chunk.js.map",
+    "reactPlayerWistia.eeeb23b6.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerWistia.eeeb23b6.chunk.js.map",
+    "reactPlayerTwitch.738c346e.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerTwitch.738c346e.chunk.js.map",
+    "reactPlayerDailyMotion.14c8b4a3.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerDailyMotion.14c8b4a3.chunk.js.map",
+    "reactPlayerMixcloud.ea6720ac.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerMixcloud.ea6720ac.chunk.js.map",
+    "reactPlayerVidyard.4016fd3e.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerVidyard.4016fd3e.chunk.js.map",
+    "reactPlayerKaltura.285e2879.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerKaltura.285e2879.chunk.js.map",
+    "reactPlayerFilePlayer.cabb084a.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerFilePlayer.cabb084a.chunk.js.map",
+    "reactPlayerPreview.618b6221.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerPreview.618b6221.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc1475cd.css",
+    "static/js/main.5c643314.js"
+  ]
+}
