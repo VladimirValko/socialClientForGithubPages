@@ -21,8 +21,8 @@ const Feed: React.FC = () => {
   const usersData = useSelector(
     (state: RootState) => state.authReducer.userData.user
   );
-  const userVideosData = useSelector(
-    (state: RootState) => state.videosReducer.userVideos
+  const userVideosDataId = useSelector(
+    (state: RootState) => state.videosReducer?.userVideos?._id
   );
   const musicId = useSelector(
     (state: RootState) => state.musicReducer.userMusic.userId
@@ -54,7 +54,7 @@ const Feed: React.FC = () => {
       await dispatch(fetchGetUserMusic(userId));
 
       const setUserMedia = async () => {
-        if (!userVideosData._id) {
+        if (!userVideosDataId) {
           await dispatch(fetchCreateUserVideos(newUserMedia));
         }
         console.log("setUserVideos");

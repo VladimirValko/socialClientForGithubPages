@@ -2,14 +2,16 @@ import "./leftbar.css";
 import { MdRssFeed, MdVideoLibrary, MdOutlineWeb } from "react-icons/md";
 import { BsFillChatLeftTextFill } from "react-icons/bs";
 import { SiYoutubemusic, SiTinder } from "react-icons/si";
-import { BiBookContent } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { FaUserFriends } from "react-icons/fa";
+import { FaUserFriends, FaUserAlt } from "react-icons/fa";
 import Birthday from "../../assets/gift.png";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 
 const Sidebar: React.FC = () => {
+  const user = useSelector(
+    (state: RootState) => state.authReducer?.userData?.user
+  );
   const isMobile = useSelector(
     (state: RootState) => state.authReducer.mobileStatus
   );
@@ -79,6 +81,15 @@ const Sidebar: React.FC = () => {
                 <MdRssFeed className="leftbarListItemIcon" />
                 <Link to="/" style={{ textDecoration: "none" }}>
                   <span className="leftbarListItemText link">Feed</span>
+                </Link>
+              </li>
+              <li className="leftbarListItem">
+                <FaUserAlt className="leftbarListItemIcon" />
+                <Link
+                  to={`/profile/${user?._id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <span className="leftbarListItemText link">My Page</span>
                 </Link>
               </li>
               <li className="leftbarListItem">

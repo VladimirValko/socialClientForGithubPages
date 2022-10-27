@@ -13,7 +13,7 @@ const options = {
       maxResults: '50'
     },
     headers: {
-      'X-RapidAPI-Key': "puk-puk",
+      'X-RapidAPI-Key': oldKey,
       'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
     }
   };

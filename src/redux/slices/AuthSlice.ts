@@ -106,7 +106,7 @@ const authSlice = createSlice({
     },
     toggleMobileMenu: (state) => {
       state.mobileStatus = !state.mobileStatus;
-      console.log(state.mobileStatus)
+      console.log(state.mobileStatus, "mobile")
     },
   },
   extraReducers: (builder) => {
