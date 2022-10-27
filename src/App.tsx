@@ -18,22 +18,27 @@ function App() {
     <BrowserRouter basename="/socialClientForGithubPages">
       <div className="app">
         <Topbar />
-        <Routes>
-          <Route path="/" element={isAuth ? <Home /> : <Login />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route
-            path="/profile/:userId"
-            element={isAuth ? <UserPage /> : <Login />}
-          />
-          <Route path="/users" element={isAuth ? <People /> : <Login />} />
-          <Route
-            path="/messenger"
-            element={isAuth ? <Messenger /> : <Login />}
-          />
-          <Route path="/videos" element={isAuth ? <VideosPage /> : <Login />} />
-          <Route path="/music" element={isAuth ? <MusicPage /> : <Login />} />
-        </Routes>
+        <div className="main">
+          <Routes>
+            <Route path="/" element={isAuth ? <Home /> : <Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route
+              path="/profile/:userId"
+              element={isAuth ? <UserPage /> : <Login />}
+            />
+            <Route path="/users" element={isAuth ? <People /> : <Login />} />
+            <Route
+              path="/messenger"
+              element={isAuth ? <Messenger /> : <Login />}
+            />
+            <Route
+              path="/videos"
+              element={isAuth ? <VideosPage /> : <Login />}
+            />
+            <Route path="/music" element={isAuth ? <MusicPage /> : <Login />} />
+          </Routes>
+        </div>
       </div>
     </BrowserRouter>
   );

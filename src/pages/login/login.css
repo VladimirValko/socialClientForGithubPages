@@ -83,3 +83,29 @@
 .loginButton:active, .loginRegisterButton:active {
   color:rgb(141, 42, 141);
 }
+
+@media (max-width: 767px) {
+  .login {
+    height: calc(100vh - 60px);
+
+  }
+
+  .loginWrapper {
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 5px;
+  }
+
+  .loginLogo {
+    margin: 5px;
+  }
+
+  .loginLeft {
+    text-align: center;
+    align-items: center;
+  }
+
+  .loginBox {
+    margin: 20px 0 ;
+  }
+}

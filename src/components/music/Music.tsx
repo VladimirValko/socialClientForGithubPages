@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
 import { AppDispatch } from "../../redux/store";
 import { playPause, fetchCreateUserMusic } from "../../redux/slices/MusicSlice";
+import { setGanre } from "../../redux/slices/MusicSlice";
+import { charts } from "./charts";
 
 const Music: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -46,8 +48,9 @@ const Music: React.FC = () => {
         await dispatch(fetchCreateUserMusic(createMusicParams));
       }
     };
-
     createUserMusic();
+
+    dispatch(setGanre(charts));
 
     return () => {
       dispatch(playPause(false));

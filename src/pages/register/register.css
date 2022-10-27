@@ -83,3 +83,29 @@
 .registerButton:active {
   color:rgb(141, 42, 141);
 }
+
+@media (max-width: 767px) {
+  .register {
+    height: calc(100vh - 60px);
+
+  }
+
+  .registerWrapper {
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 5px;
+  }
+
+  .registerLogo {
+    margin: 5px;
+  }
+
+  .registerLeft {
+    text-align: center;
+    align-items: center;
+  }
+
+  .registerBox {
+    margin: 20px 0 ;
+  }
+}

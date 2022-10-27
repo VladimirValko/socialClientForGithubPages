@@ -57,11 +57,11 @@ const VideoSingle: React.FC<SingleVideo> = ({ data, isMyPage }) => {
   );
 
   const userVideos = useSelector(
-    (state: RootState) => state.videosReducer.userVideos.videos
+    (state: RootState) => state.videosReducer.userVideos?.videos
   );
 
   const videoExists =
-    userVideos.filter((vid) => vid.id.videoId === data.id.videoId).length > 0;
+    userVideos?.filter((vid) => vid.id.videoId === data.id.videoId).length > 0;
   console.log(videoExists, "videoExists");
 
   const handleVideo = async (videoId: string | undefined) => {

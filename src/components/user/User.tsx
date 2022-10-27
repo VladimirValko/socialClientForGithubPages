@@ -179,7 +179,7 @@ const User: React.FC<UserProps> = ({ isMyPage }) => {
           </div>
           <div className="userMobileProfilePhoto">
             <img
-              src={user.coverPicture}
+              src={user?.coverPicture}
               alt="profile"
               className="mobileProfilrImg"
             />

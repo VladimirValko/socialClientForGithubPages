@@ -20,7 +20,7 @@ type SubmitSearchProps = {
 };
 
 const Topbar: React.FC = () => {
-  const [isOpen, setOpen] = useState(true);
+  const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector(

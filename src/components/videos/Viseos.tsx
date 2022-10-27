@@ -33,6 +33,10 @@ const Viseos: React.FC = () => {
   });
 
   useEffect(() => {
+    setCategory(music);
+  }, []);
+
+  useEffect(() => {
     console.log("rerender");
   }, [category, userVideosData?.videos]);
 
@@ -123,17 +127,16 @@ const Viseos: React.FC = () => {
           </div>
         </div>
         <div className="videosButtom">
-          {category?.length > 0 &&
-            category
-              ?.filter((video) => video?.id.kind === "youtube#video")
-              .slice(0, 30)
-              .map((video, i) => (
-                <div className="videoSingleWrapper">
-                  <VideoSingle data={video} key={i} isMyPage={false} />
-                </div>
-              ))}
+          {category
+            ?.filter((video) => video?.id.kind === "youtube#video")
+            .slice(0, 30)
+            .map((video, i) => (
+              <div className="videoSingleWrapper">
+                <VideoSingle data={video} key={i} isMyPage={false} />
+              </div>
+            ))}
         </div>
-        {!category.length && (
+        {!category?.length && (
           <div className="noResultsWrapper">
             <img src={NoResults} alt="noResults" />
           </div>
