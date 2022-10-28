@@ -45,7 +45,6 @@ const Song: React.FC<SongTypeProps> = ({
   const songExists = userSongs?.length
     ? userSongs.filter((s) => s.key === song.key).length > 0
     : false;
-  console.log(songExists, "songExists");
 
   const fetchHandleSong = async (songKey: string | undefined) => {
     console.log(songKey);

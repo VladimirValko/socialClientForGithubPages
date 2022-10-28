@@ -34,6 +34,7 @@ const Viseos: React.FC = () => {
 
   useEffect(() => {
     setCategory(music);
+    setActiveCategory("music");
   }, []);
 
   useEffect(() => {

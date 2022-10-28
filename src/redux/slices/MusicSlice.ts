@@ -85,7 +85,7 @@ const initialState: MusicStateType = {
   isPlaying: false,
   activeSong: null,
   status: "",
-  activeCategorie: "",
+  activeCategorie: "myMusic",
   selectedGanre: [],
   searchedSongs: [],
   userMusic: {

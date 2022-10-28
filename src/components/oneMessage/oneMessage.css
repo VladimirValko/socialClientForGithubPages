@@ -47,3 +47,8 @@
   color: black;
 }
 
+@media (max-width: 767px) {
+.messageText {
+  max-width: 200px;
+}
+}

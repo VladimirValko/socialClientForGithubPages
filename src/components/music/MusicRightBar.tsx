@@ -34,7 +34,9 @@ const MusicRightBar: React.FC = () => {
     activeCategorie || "charts"
   );
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setActiveCategorie("charts");
+  }, []);
 
   const handleSetActiveGanre = (activeButton: string, ganre?: ISong[]) => {
     dispatch(setGanre(ganre));
