@@ -4,6 +4,10 @@ body {
   list-style: none;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 textarea {
   font-family: 'Roboto', sans-serif;
 }

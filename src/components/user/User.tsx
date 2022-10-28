@@ -18,6 +18,10 @@ import { undefinedPicture } from "../post/Post";
 import { SinglePostType, fetchAllPosts } from "../../redux/slices/PostSlice";
 import { getFeedFromAllPosts } from "../../utils/getFeedFromAllPosts";
 import { fetchAllUsers } from "../../redux/slices/UserSlice";
+import {
+  setConversation,
+  fetchCreteConversation,
+} from "../../redux/slices/ChatSlice";
 import { fetchGetFriendsVideos } from "../../redux/slices/VideosSlice";
 import VideoSingle from "../videoSingle/VideoSingle";
 
@@ -45,6 +49,9 @@ const User: React.FC<UserProps> = ({ isMyPage }) => {
   const MyVideos = useSelector(
     (state: RootState) => state.videosReducer.userVideos?.videos
   );
+  const conversations = useSelector(
+    (state: RootState) => state.chatReducer?.conversations
+  );
   const usersData = useSelector((state: RootState) => state.userReducer.users);
   const user = usersData.filter((user) => user._id === params.userId)[0];
   const allPosts = useSelector((state: RootState) => state.postReducer.posts);
@@ -55,13 +62,16 @@ const User: React.FC<UserProps> = ({ isMyPage }) => {
   const friendVideos = useSelector(
     (state: RootState) => state.videosReducer.friendVideos
   );
+  const friends = useSelector(
+    (state: RootState) => state.authReducer.userData.user?.followins
+  );
   const userPageVideos = isMyPage ? MyVideos : friendVideos;
+  const isMyFriend = friends?.includes(user._id);
 
   useEffect(() => {}, [allPosts, logedInUser]);
 
   useEffect(() => {
     const getAllPosts = async () => {
-      // await dispatch(fetchFeed(usersData?._id));
       await dispatch(fetchAllPosts());
       await dispatch(fetchAllUsers());
     };
@@ -73,13 +83,18 @@ const User: React.FC<UserProps> = ({ isMyPage }) => {
 
     if (!isMyPage) {
       getFriendsVideos();
-      console.log(friendVideos, "friendVideos");
     }
   }, []);
 
   useEffect(() => {
     setProfileUserData(logedInUser);
   }, [logedInUser]);
+
+  useEffect(() => {
+    const userFeed = getFeedFromAllPosts(allPosts, friends, logedInUser?._id);
+    console.log(userFeed, "usersFeed");
+    setMyFeed(userFeed);
+  }, [allPosts]);
 
   const handleEditClick = () => {
     setIsEdditing(!isEdditing);
@@ -127,15 +142,22 @@ const User: React.FC<UserProps> = ({ isMyPage }) => {
     window.alert("Your profile has been changed.");
   };
 
-  const friends = useSelector(
-    (state: RootState) => state.authReducer.userData.user?.followins
-  );
-
-  useEffect(() => {
-    const userFeed = getFeedFromAllPosts(allPosts, friends, logedInUser?._id);
-    console.log(userFeed, "usersFeed");
-    setMyFeed(userFeed);
-  }, [allPosts]);
+  const handleConversation = async () => {
+    const createConversationProps = {
+      senderId: logedInUser?._id,
+      receiverId: user._id,
+    };
+    const conversation = conversations.filter(
+      (conv) => conv.members[1] === params.userId
+    );
+    if (conversation.length > 0) {
+      setConversation(conversation[0]._id);
+      navigate("/messenger");
+    } else {
+      await dispatch(fetchCreteConversation(createConversationProps));
+      navigate("/messenger");
+    }
+  };
 
   return (
     <div className="user">
@@ -143,6 +165,16 @@ const User: React.FC<UserProps> = ({ isMyPage }) => {
         <div className="profileImg">
           <img src={user?.coverPicture || undefinedPicture} alt="" />
         </div>
+
+        {!isMyPage && (
+          <button
+            className="messageButton"
+            onClick={() => handleConversation()}
+          >
+            Wright a message
+          </button>
+        )}
+
         <div className="profileMedia">
           {userPageVideos?.map((vid, idx) => (
             <div className="userVideoWrapper">
@@ -184,6 +216,7 @@ const User: React.FC<UserProps> = ({ isMyPage }) => {
               className="mobileProfilrImg"
             />
           </div>
+
           <div className="mainInfo">
             <span>
               Relationship: <b>{user?.relationship}</b>
@@ -200,6 +233,14 @@ const User: React.FC<UserProps> = ({ isMyPage }) => {
           <div className="dexcriptionContainer">
             <span>{user?.description}</span>
           </div>
+          {!isMyPage && isMyFriend && (
+            <button
+              className="messageButtonMobile"
+              onClick={() => handleConversation()}
+            >
+              Wright a message
+            </button>
+          )}
         </div>
         {isEdditing && (
           <div className="editProfileFormWrapper">

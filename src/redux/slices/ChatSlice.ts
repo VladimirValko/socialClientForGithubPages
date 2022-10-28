@@ -10,6 +10,11 @@ export type AddMessageProps = {
   text: string | undefined;
 }
 
+export type CreateConversationPropsType = {
+  senderId: string | undefined;
+  receiverId: string | undefined;
+}
+
 export type ConversationType = {
   members: string[]
   _id: string
@@ -57,6 +62,15 @@ export const fetchMessages = createAsyncThunk(
   }
 );
 
+export const fetchCreteConversation = createAsyncThunk(
+  "chat/fetchCreteConversation",
+  async (params: CreateConversationPropsType) => {
+    const { data } = await axios.post<ConversationType>("/conversation", params);
+    console.log(data, "data from fetchCreteConversation");
+    return data
+  }
+);
+
 
 // STATE
 const initialState: ChatStateType= {
@@ -89,7 +103,7 @@ const chatSlice = createSlice({
     builder.addCase(fetchConversations.rejected, () => {
       console.log("smthng goes wrong in fetchAllPosts");
     })
-
+      //FETCH MESSAGES
       builder.addCase(fetchMessages.pending, (state) => {
         state.status = "loading";
       })
@@ -100,7 +114,7 @@ const chatSlice = createSlice({
       builder.addCase(fetchMessages.rejected, () => {
       console.log("smthng goes wrong in fetchMessages");
       })
-
+         //FETCH ADD MESSAGE
         builder.addCase(fetchAddMessage.pending, (state) => {
           state.status = "loading";
         })
@@ -111,28 +125,17 @@ const chatSlice = createSlice({
         builder.addCase(fetchAddMessage.rejected, () => {
         console.log("smthng goes wrong in fetchAddMessage");
         })
-
-      //     builder.addCase(fetchDeletePost.pending, (state) => {
-      //       state.status = "loading";
-      //     })
-      //     builder.addCase(fetchDeletePost.fulfilled, (state, action) => {
-      //       state.posts = action.payload
-      //       state.status = "succese";
-      //     })
-      //     builder.addCase(fetchDeletePost.rejected, () => {
-      //       console.log("smthng goes wrong in fetchDeletePost");
-      //     })
-
-      //       builder.addCase(fetchLikePost.pending, (state) => {
-      //         state.status = "loading";
-      //       })
-      //       builder.addCase(fetchLikePost.fulfilled, (state, action) => {
-      //         state.posts = action.payload
-      //         state.status = "succese";
-      //       })
-      //       builder.addCase(fetchLikePost.rejected, () => {
-      //         console.log("smthng goes wrong in fetchLikePost");
-      //       })
+          // FETCH CREATE CONVERSATION
+          builder.addCase(fetchCreteConversation.pending, (state) => {
+            state.status = "loading";
+          })
+          builder.addCase(fetchCreteConversation.fulfilled, (state, action) => {
+            state.currentConversation = action.payload._id
+            state.status = "succese";
+          })
+          builder.addCase(fetchCreteConversation.rejected, () => {
+          console.log("smthng goes wrong in fetchCreteConversation");
+          })
       ;
   },
 });

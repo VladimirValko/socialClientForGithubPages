@@ -43,7 +43,8 @@
 }
 
 .logoutBtn:hover {
-  color: rgba(0, 0, 0, 0.793);
+  color: rgb(41, 41, 41);
+  /* font-weight: bold; */
   /* border: 1px solid rgba(113, 113, 113, 0.89); */
   -webkit-box-shadow: 3px 5px 25px -13px rgba(34, 60, 80, 0.39);
   -moz-box-shadow: 3px 5px 25px -13px rgba(34, 60, 80, 0.39);
@@ -56,6 +57,29 @@
   width: 100%;
   margin-bottom: 10px;
   align-items: center;
+}
+
+.messageButton {
+  width: 99%;
+  background-color: white;
+  border:none;
+  padding: 10px;
+  border-radius: 10px;
+  color: rgb(131, 100, 199);
+  margin-bottom: 10px;
+  font-weight: bold;
+  -webkit-box-shadow: 3px 5px 25px -13px rgba(34, 60, 80, 0.39);
+  -moz-box-shadow: 3px 5px 25px -13px rgba(34, 60, 80, 0.39);
+  box-shadow: 3px 5px 25px -13px rgba(34, 60, 80, 0.39);
+}
+
+.messageButtonMobile {
+  display: none;
+}
+
+.messageButton:hover {
+  width: 100%;
+
 }
 
 .userMobileProfilePhoto {
@@ -281,19 +305,38 @@
   .userRight {
     margin: 10px;
   }
+  .messageButtonMobile {
+    display: block;
+    align-self: center;
+    margin-left: 0;
+    width: 50%;
+    background-color: rgb(131, 100, 199);
+    border:none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
 }
 
 @media (max-width: 767px) {
-
   .userLeft {
     display: none;
   }
-
   .userRight {
     margin: 7px;
   }
-
   .userName {
     font-size: 18px;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .messageButtonMobile {
+    align-self: center;
+    margin-left: 0;
+    width: 90%;
   }
 }
