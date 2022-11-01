@@ -2,14 +2,14 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   flex-wrap: wrap;
   width: 180px;
   max-height: 300px;
   padding: 10px;
   background-color: rgba(245, 244, 244, 0.764);
   border-radius: 10px;
-box-sizing: border-box;
+  box-sizing: border-box;
   margin-bottom: 20px;
   -webkit-box-shadow: 4px 4px 29px -11px rgba(34, 60, 80, 0.43);
   -moz-box-shadow: 4px 4px 29px -11px rgba(34, 60, 80, 0.43);
@@ -28,8 +28,8 @@ box-sizing: border-box;
 .playPause {
   color: white;
   position: absolute;
-  top:30%;
-  left: 42%;
+  top:29%;
+  left: 40%;
   z-index: 999;
 }
 
@@ -129,7 +129,7 @@ box-sizing: border-box;
   .playPause {
     color: white;
     position: absolute;
-    top: 27%;
+    top: 28%;
     left: 9%;
     z-index: 999;
   }

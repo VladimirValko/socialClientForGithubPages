@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./topbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -29,13 +29,20 @@ const Topbar: React.FC = () => {
   const isMobile = useSelector(
     (state: RootState) => state.authReducer.mobileStatus
   );
-
   const { register, handleSubmit, resetField } = useForm({
     defaultValues: {
       search: "",
     },
     mode: "onSubmit",
   });
+
+  useEffect(() => {
+    if (isMobile) {
+      setOpen(true);
+    } else {
+      setOpen(false);
+    }
+  }, [isMobile]);
 
   const onSubmit = async (inputValue: SubmitSearchProps) => {
     dispatch(setIsSearch(true));

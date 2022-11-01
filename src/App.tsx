@@ -6,16 +6,26 @@ import People from "./pages/people/People";
 import Messenger from "./pages/messenger/Messenger";
 import Topbar from "./components/topbar/Topbar";
 import "./App.css";
-import { useSelector } from "react-redux";
-import { selectIsAuth } from "./redux/slices/AuthSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { selectIsAuth, toggleMobileMenu } from "./redux/slices/AuthSlice";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import VideosPage from "./pages/videosPage/VideosPage";
 import MusicPage from "./pages/musicPage/MusicPage";
+import { RootState, AppDispatch } from "./redux/store";
 
 function App() {
+  const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
+  const isMobile = useSelector(
+    (state: RootState) => state.authReducer.mobileStatus
+  );
+  const handleClick = () => {
+    dispatch(toggleMobileMenu());
+  };
+
   return (
     <BrowserRouter basename="/socialClientForGithubPages">
+      <div className={`${isMobile ? "dark" : ""}`} onClick={handleClick}></div>
       <div className="app">
         <Topbar />
         <div className="main">
