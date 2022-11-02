@@ -21,12 +21,10 @@ const Feed: React.FC = () => {
   const usersData = useSelector(
     (state: RootState) => state.authReducer.userData.user
   );
-  const userVideosDataId = useSelector(
-    (state: RootState) => state.videosReducer?.userVideos?._id
-  );
-  const musicId = useSelector(
-    (state: RootState) => state.musicReducer.userMusic.userId
-  );
+  const userVideosDataId = useSelector((state: RootState) => {
+    console.log(state.videosReducer?.userVideos?._id, "userVideosDataId fired");
+    return state.videosReducer?.userVideos?._id;
+  });
   const isSearch = useSelector(
     (state: RootState) => state.postReducer.search?.isSearch
   );
@@ -43,6 +41,7 @@ const Feed: React.FC = () => {
   };
 
   useEffect(() => {
+    console.log("useEffeckt");
     const newUserMedia = {
       userId,
     };
@@ -53,13 +52,18 @@ const Feed: React.FC = () => {
       await dispatch(fetchGetUserVideos(userId));
       await dispatch(fetchGetUserMusic(userId));
 
+      console.log(userVideosDataId, "userVideosDataId");
+
       const setUserMedia = async () => {
-        if (!userVideosDataId) {
-          await dispatch(fetchCreateUserVideos(newUserMedia));
-        }
+        // console.log(userVideosDataId._id, "userVideosDataId._id");
+        // if (!userVideosDataId._id) {
+        await dispatch(fetchCreateUserVideos(newUserMedia));
+        // }
         console.log("setUserVideos");
       };
-      setUserMedia();
+      if (!userVideosDataId) {
+        setUserMedia();
+      }
     };
 
     getData();
@@ -68,7 +72,7 @@ const Feed: React.FC = () => {
       dispatch(setIsSearch(false));
       dispatch(setSearchValue(""));
     };
-  }, []);
+  }, [userVideosDataId]);
 
   useEffect(() => {
     // get userFeed for logined user from allPosts

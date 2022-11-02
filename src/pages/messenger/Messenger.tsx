@@ -27,7 +27,7 @@ const Messenger: React.FC = () => {
     <>
       {/* <Topbar /> */}
       <div className="messengerPage">
-        <Leftbar />
+        {/* <Leftbar /> */}
         <Messages />
         <ChatLeftbar />
       </div>

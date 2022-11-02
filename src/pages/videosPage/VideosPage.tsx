@@ -9,7 +9,7 @@ const VideosPage: React.FC = () => {
     <>
       {/* <Topbar /> */}
       <div className="videoPage">
-        <Leftbar />
+        {/* <Leftbar /> */}
         <Videos />
       </div>
     </>

@@ -1,6 +1,5 @@
 .app {
   background-color:hsla(0,0%,100%,1);
-
   background-image:
   radial-gradient(at 40% 20%, hsla(297,100%,78%,1) 0px, transparent 50%),
   radial-gradient(at 80% 0%, hsla(338,100%,78%,1) 0px, transparent 50%),
@@ -9,6 +8,12 @@
   radial-gradient(at 0% 100%, hsla(165,100%,78%,1) 0px, transparent 50%),
   radial-gradient(at 80% 100%, hsla(29,100%,78%,0.74) 0px, transparent 50%),
   radial-gradient(at 0% 0%, hsla(252,100%,78%,1) 0px, transparent 50%); 
+}
+
+.topBarWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dark {
@@ -42,6 +47,9 @@
 }
 
 .main {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
   margin-top: 60px;
 }
 

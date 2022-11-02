@@ -19,7 +19,7 @@ const UserPage: React.FC = () => {
     <>
       {/* <Topbar /> */}
       <div className="profile">
-        <Leftbar />
+        {/* <Leftbar /> */}
         <div className="profileContainer">
           <User isMyPage={isMyPage} />
         </div>

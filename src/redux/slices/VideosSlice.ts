@@ -154,6 +154,7 @@ const videosSlice = createSlice({
           builder.addCase(fetchGetUserVideos.fulfilled, (state, action) => {
             state.userVideos = action.payload[0];
             state.status = "succese";
+            console.log(state.userVideos, "state userVideos")
           })
           builder.addCase(fetchGetUserVideos.rejected, () => {
             console.log("smthng goes wrong in fetchGetUserVideos");

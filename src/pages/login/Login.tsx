@@ -1,10 +1,9 @@
 import "./login.css";
 import { useNavigate, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchAuth, selectIsAuth } from "../../redux/slices/AuthSlice";
+import { useDispatch } from "react-redux";
+import { fetchAuth } from "../../redux/slices/AuthSlice";
 import { useForm } from "react-hook-form";
 import { AppDispatch } from "../../redux/store";
-import { UserDataType } from "../../redux/slices/AuthSlice";
 
 type ValueType = {
   email: string;
@@ -18,14 +17,13 @@ const Login: React.FC = () => {
   const {
     register,
     handleSubmit,
-    setError,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm({
     defaultValues: {
       email: "",
       password: "",
     },
-    mode: "onChange",
+    mode: "onBlur",
   });
 
   const onSubmit = async (values: ValueType) => {
@@ -49,14 +47,25 @@ const Login: React.FC = () => {
           </span>
         </div>
         <div className="loginRight">
-          <div className="loginBox">
+          <form className="loginBox">
+            {errors?.email && <p className="invalid">Your email is invalid </p>}
             <input
-              placeholder="Email"
+              placeholder={`${
+                errors?.email ? errors?.email?.message : "Email"
+              }`}
               className="loginInput"
-              {...register("email", { required: "enter your email" })}
+              {...register("email", {
+                required: "Enter your email",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Invalid email address",
+                },
+              })}
             />
             <input
-              placeholder="Password"
+              placeholder={`${
+                errors?.password ? errors?.password?.message : "Password"
+              }`}
               type="password"
               className="loginInput"
               {...register("password", { required: "Enter your password" })}
@@ -73,7 +82,7 @@ const Login: React.FC = () => {
                 Create a New Account
               </Link>
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>

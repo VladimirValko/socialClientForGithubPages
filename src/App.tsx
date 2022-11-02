@@ -5,6 +5,7 @@ import UserPage from "./pages/userPage/UserPage";
 import People from "./pages/people/People";
 import Messenger from "./pages/messenger/Messenger";
 import Topbar from "./components/topbar/Topbar";
+import LeftBar from "./components/leftbar/Leftbar";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { selectIsAuth, toggleMobileMenu } from "./redux/slices/AuthSlice";
@@ -14,7 +15,7 @@ import MusicPage from "./pages/musicPage/MusicPage";
 import { RootState, AppDispatch } from "./redux/store";
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const isAuth = useSelector(selectIsAuth);
   const isMobile = useSelector(
     (state: RootState) => state.authReducer.mobileStatus
@@ -27,8 +28,9 @@ function App() {
     <BrowserRouter basename="/socialClientForGithubPages">
       <div className={`${isMobile ? "dark" : ""}`} onClick={handleClick}></div>
       <div className="app">
-        <Topbar />
+        <div className="topBarWrapper">{isAuth && <Topbar />}</div>
         <div className="main">
+          <LeftBar />
           <Routes>
             <Route path="/" element={isAuth ? <Home /> : <Login />} />
             <Route path="/login" element={<Login />} />

@@ -66,7 +66,7 @@ const User: React.FC<UserProps> = ({ isMyPage }) => {
     (state: RootState) => state.authReducer.userData.user?.followins
   );
   const userPageVideos = isMyPage ? MyVideos : friendVideos;
-  const isMyFriend = friends?.includes(user._id);
+  const isMyFriend = friends?.includes(user?._id);
 
   useEffect(() => {}, [allPosts, logedInUser]);
 

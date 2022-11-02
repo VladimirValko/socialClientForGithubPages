@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./register.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchRegister } from "../../redux/slices/AuthSlice";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import { AppDispatch } from "../../redux/store";
+import { ErrorMessage } from "@hookform/error-message";
 
 type ValueType = {
   username: string;
@@ -12,27 +13,31 @@ type ValueType = {
   password: string;
 };
 
-const Register = () => {
+const Register: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       username: "",
       email: "",
       password: "",
     },
-    mode: "onChange",
+    mode: "onBlur",
   });
 
   const onSubmit = async (values: ValueType) => {
-    console.log(values);
     const data = await dispatch(fetchRegister(values));
     if ("token" in data.payload) {
       window.localStorage.setItem("token", data.payload.token);
       navigate("/", { replace: true });
     } else {
       console.log("Somthng goes wrong");
+      alert("Your data is invalid, try again");
     }
   };
 
@@ -41,28 +46,41 @@ const Register = () => {
       <div className="registerWrapper">
         <div className="registerLeft">
           <h2 className="registerLogo">Socialism</h2>
-          <span className="registerDescription">
+          <p className="registerDescription">
             Connect with friends and the world around you on Socialism
-          </span>
+          </p>
         </div>
         <div className="registerRight">
-          <div className="registerBox">
+          <form className="registerBox">
             <input
-              placeholder="Username"
+              placeholder={`${
+                errors?.username ? errors?.username?.message : "User Name"
+              }`}
               className="registerInput"
               type="text"
-              {...register("username", { required: "Enter your name" })}
+              {...register("username", { required: "User name is required" })}
             />
             <input
-              placeholder="Email"
+              placeholder={`${
+                errors?.email ? errors?.email?.message : "User Name"
+              }`}
               className="registerInput"
-              {...register("email", { required: "Укажите почту" })}
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Invalid email address",
+                },
+              })}
             />
+            {errors?.email && <p className="invalid">Your email is invalid </p>}
             <input
-              placeholder="Password"
+              placeholder={`${
+                errors?.password ? errors?.password?.message : "User Name"
+              }`}
               className="registerInput"
               type="password"
-              {...register("password", { required: "Enter your password" })}
+              {...register("password", { required: "Password is required" })}
             />
             <button className="registerButton" onClick={handleSubmit(onSubmit)}>
               Sign Up
@@ -75,7 +93,7 @@ const Register = () => {
                 Log into Account
               </Link>
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>

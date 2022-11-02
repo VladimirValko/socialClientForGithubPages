@@ -52,8 +52,10 @@ const Topbar: React.FC = () => {
   };
 
   const handleToggleHamburger = () => {
-    setOpen(!isOpen);
-    dispatch(toggleMobileMenu());
+    if (user) {
+      setOpen(!isOpen);
+      dispatch(toggleMobileMenu());
+    }
   };
 
   return (

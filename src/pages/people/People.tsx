@@ -10,7 +10,7 @@ const People = () => {
     <>
       {/* <Topbar /> */}
       <div className="usersListContainer">
-        <Leftbar />
+        {/* <Leftbar /> */}
         <UsersList />
         <Rightbar />
       </div>

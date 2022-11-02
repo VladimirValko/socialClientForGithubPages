@@ -61,7 +61,10 @@ const Share: React.FC = () => {
             />
             <input
               placeholder="What's new?..."
-              {...register("desription")}
+              {...(register("desription"),
+              {
+                required: true,
+              })}
               className="shareInput"
             />
           </div>

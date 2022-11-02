@@ -6,7 +6,7 @@
   top: 60px;
   right: 0;
   padding: 10px;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: calc(100vh - 60px);
   background-color: rgba(255, 255, 255, 0.799);
   -webkit-box-shadow: -9px 1px 19px -11px rgba(34, 60, 80, 0.2);
