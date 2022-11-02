@@ -177,7 +177,7 @@ const User: React.FC<UserProps> = ({ isMyPage }) => {
 
         <div className="profileMedia">
           {userPageVideos?.map((vid, idx) => (
-            <div className="userVideoWrapper">
+            <div className="userVideoWrapper" key={idx}>
               <VideoSingle isMyPage={true} data={vid} key={idx} />
             </div>
           ))}

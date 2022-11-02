@@ -51,28 +51,24 @@ export type YtVideo = {
 };
 
 const VideoSingle: React.FC<SingleVideo> = ({ data, isMyPage }) => {
+  console.log("video rendered");
   const dispatch = useDispatch<AppDispatch>();
   const userId = useSelector(
     (state: RootState) => state.authReducer.userData.user?._id
   );
-
   const userVideos = useSelector(
     (state: RootState) => state.videosReducer.userVideos?.videos
   );
-
   const videoExists =
     userVideos?.filter((vid) => vid.id.videoId === data.id.videoId).length > 0;
-  console.log(videoExists, "videoExists");
 
   const handleVideo = async (videoId: string | undefined) => {
-    console.log(videoId);
     const videoData = {
       userId: userId,
       video: data,
       videoId,
     };
     await dispatch(fetchHandleVideo(videoData));
-    console.log("dispatch from single video");
   };
 
   return (

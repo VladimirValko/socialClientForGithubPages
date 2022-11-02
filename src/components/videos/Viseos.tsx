@@ -14,7 +14,7 @@ type videoSearchProps = {
   searchValue: string;
 };
 
-const Viseos: React.FC = () => {
+const Videos: React.FC = () => {
   const searchedVideos = useSelector(
     (state: RootState) => state.videosReducer?.searchVideos
   );
@@ -147,4 +147,4 @@ const Viseos: React.FC = () => {
   );
 };
 
-export default Viseos;
+export default Videos;

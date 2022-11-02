@@ -109,6 +109,7 @@
     padding: 4px 0;
     position: sticky;
     bottom: 0;
+    max-height: 130px;
   }
   .musicRightBarWrapper {
     display: flex;

@@ -1,7 +1,4 @@
-import "./userPage.css";
 import React from "react";
-import Leftbar from "../../components/leftbar/Leftbar";
-import Topbar from "../../components/topbar/Topbar";
 import User from "../../components/user/User";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
@@ -15,17 +12,7 @@ const UserPage: React.FC = () => {
   const { userId } = useParams();
   const isMyPage = usersData?._id === userId;
 
-  return (
-    <>
-      {/* <Topbar /> */}
-      <div className="profile">
-        {/* <Leftbar /> */}
-        <div className="profileContainer">
-          <User isMyPage={isMyPage} />
-        </div>
-      </div>
-    </>
-  );
+  return <User isMyPage={isMyPage} />;
 };
 
 export default UserPage;

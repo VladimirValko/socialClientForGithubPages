@@ -28,9 +28,11 @@ function App() {
     <BrowserRouter basename="/socialClientForGithubPages">
       <div className={`${isMobile ? "dark" : ""}`} onClick={handleClick}></div>
       <div className="app">
-        <div className="topBarWrapper">{isAuth && <Topbar />}</div>
+        <div className="topBarWrapper">
+          <Topbar />
+        </div>
         <div className="main">
-          <LeftBar />
+          {isAuth && <LeftBar />}
           <Routes>
             <Route path="/" element={isAuth ? <Home /> : <Login />} />
             <Route path="/login" element={<Login />} />
