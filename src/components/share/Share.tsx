@@ -43,6 +43,7 @@ const Share: React.FC = () => {
   });
 
   const onSubmit = async (newPostData: reqType) => {
+    console.log(newPostData);
     await dispatch(fetchAddPost(newPostData));
     setIsAddingPicture(false);
     resetField("desription");
@@ -61,10 +62,7 @@ const Share: React.FC = () => {
             />
             <input
               placeholder="What's new?..."
-              {...(register("desription"),
-              {
-                required: true,
-              })}
+              {...register("desription", { required: true })}
               className="shareInput"
             />
           </div>
@@ -93,7 +91,7 @@ const Share: React.FC = () => {
                 />
                 <span className="shareOptionText">Music</span>
               </div>
-              <div className="shareOption">
+              <div className="shareOption location">
                 <GoLocation
                   className="shareIcon"
                   style={{ color: "#b8261c" }}

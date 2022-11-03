@@ -3,7 +3,10 @@ import "./videos.css";
 import VideoSingle from "../videoSingle/VideoSingle";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../redux/store";
-import { fetchSearchVideos } from "../../redux/slices/VideosSlice";
+import {
+  fetchSearchVideos,
+  fetchCreateUserVideos,
+} from "../../redux/slices/VideosSlice";
 import { music, sport, travel, code } from "./videosDataExample";
 import { useForm } from "react-hook-form";
 import { RootState } from "../../redux/store";
@@ -21,6 +24,9 @@ const Videos: React.FC = () => {
   const userVideosData = useSelector(
     (state: RootState) => state.videosReducer.userVideos
   );
+  const userId = useSelector(
+    (state: RootState) => state.authReducer.userData.user?._id
+  );
   const [category, setCategory] = useState<YtVideo[]>(userVideosData?.videos);
   const [activeCategory, setActiveCategory] = useState("myVideos");
   const dispatch = useDispatch<AppDispatch>();
@@ -33,8 +39,21 @@ const Videos: React.FC = () => {
   });
 
   useEffect(() => {
+    const newUserMedia = {
+      userId,
+    };
+
     setCategory(music);
     setActiveCategory("music");
+
+    const setUserMedia = async () => {
+      await dispatch(fetchCreateUserVideos(newUserMedia));
+      console.log("setUserVideos");
+    };
+
+    if (!userVideosData) {
+      setUserMedia();
+    }
   }, []);
 
   useEffect(() => {

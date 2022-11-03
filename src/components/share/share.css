@@ -109,4 +109,8 @@
   .shareOptionText{
     font-size: 12px;
   }
+
+  .location {
+    display: none;
+  }
 }

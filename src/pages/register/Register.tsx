@@ -62,7 +62,7 @@ const Register: React.FC = () => {
             />
             <input
               placeholder={`${
-                errors?.email ? errors?.email?.message : "User Name"
+                errors?.email ? errors?.email?.message : "User Email"
               }`}
               className="registerInput"
               {...register("email", {
@@ -76,7 +76,7 @@ const Register: React.FC = () => {
             {errors?.email && <p className="invalid">Your email is invalid </p>}
             <input
               placeholder={`${
-                errors?.password ? errors?.password?.message : "User Name"
+                errors?.password ? errors?.password?.message : "User Password"
               }`}
               className="registerInput"
               type="password"

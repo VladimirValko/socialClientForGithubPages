@@ -27,8 +27,8 @@ const Music: React.FC = () => {
   const searchedSongs = useSelector(
     (state: RootState) => state.musicReducer?.searchedSongs
   );
-  const musicId = useSelector(
-    (state: RootState) => state.musicReducer?.userMusic?._id
+  const userMusic = useSelector(
+    (state: RootState) => state.musicReducer?.userMusic
   );
   const userSongs = useSelector(
     (state: RootState) => state.musicReducer?.userMusic?.myMusic
@@ -42,7 +42,7 @@ const Music: React.FC = () => {
         userId: user && user._id,
       };
 
-      if (!musicId) {
+      if (!userMusic) {
         await dispatch(fetchCreateUserMusic(createMusicParams));
       }
     };
