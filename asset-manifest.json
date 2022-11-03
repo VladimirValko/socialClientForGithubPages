@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/socialClientForGithubPages/static/css/main.1b23f455.css",
-    "main.js": "/socialClientForGithubPages/static/js/main.859e8726.js",
+    "main.css": "/socialClientForGithubPages/static/css/main.fdb14f7f.css",
+    "main.js": "/socialClientForGithubPages/static/js/main.0c734572.js",
     "reactPlayerYouTube.js": "/socialClientForGithubPages/static/js/reactPlayerYouTube.b5e790ca.chunk.js",
     "reactPlayerSoundCloud.js": "/socialClientForGithubPages/static/js/reactPlayerSoundCloud.f3c6a360.chunk.js",
     "reactPlayerVimeo.js": "/socialClientForGithubPages/static/js/reactPlayerVimeo.ddbdcfeb.chunk.js",
@@ -20,8 +20,8 @@
     "static/media/like.png": "/socialClientForGithubPages/static/media/like.be1d10c9aba02398fa0c.png",
     "static/media/gift.png": "/socialClientForGithubPages/static/media/gift.4a9c4d62df0cccc684e3.png",
     "index.html": "/socialClientForGithubPages/index.html",
-    "main.1b23f455.css.map": "/socialClientForGithubPages/static/css/main.1b23f455.css.map",
-    "main.859e8726.js.map": "/socialClientForGithubPages/static/js/main.859e8726.js.map",
+    "main.fdb14f7f.css.map": "/socialClientForGithubPages/static/css/main.fdb14f7f.css.map",
+    "main.0c734572.js.map": "/socialClientForGithubPages/static/js/main.0c734572.js.map",
     "reactPlayerYouTube.b5e790ca.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerYouTube.b5e790ca.chunk.js.map",
     "reactPlayerSoundCloud.f3c6a360.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerSoundCloud.f3c6a360.chunk.js.map",
     "reactPlayerVimeo.ddbdcfeb.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerVimeo.ddbdcfeb.chunk.js.map",
@@ -37,7 +37,7 @@
     "reactPlayerPreview.618b6221.chunk.js.map": "/socialClientForGithubPages/static/js/reactPlayerPreview.618b6221.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b23f455.css",
-    "static/js/main.859e8726.js"
+    "static/css/main.fdb14f7f.css",
+    "static/js/main.0c734572.js"
   ]
 }
